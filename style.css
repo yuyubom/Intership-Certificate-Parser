@@ -1,0 +1,131 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  background: #f8f9fa;
+}
+h2 {
+  margin-bottom: 15px;
+  color: #343a40;
+  text-align: center;
+}
+#controls {
+  margin-bottom: 20px;
+  text-align: center;
+}
+#controls button, #controls input[type=file] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  margin: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#controls button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+#controls button:hover:not(:disabled),
+#controls input[type=file]:hover {
+  background-color: #0056b3;
+}
+.container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#pdfPreview {
+  flex: 1 1 480px;
+  max-width: 480px;
+  text-align: center;
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+  padding: 15px;
+}
+#pdfCanvas, #overlayCanvas {
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#overlayCanvas {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: default;
+  z-index: 10;
+}
+#textOutput {
+  margin-top: 12px;
+  background: #e9ecef;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.95rem;
+  text-align: left;
+  height: 130px;
+  overflow-y: auto;
+  color: #212529;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+#tableContainer {
+  flex: 1 1 460px;
+  max-width: 460px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+  padding: 15px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  min-width: 120px;
+}
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+}
+tbody tr {
+  background-color: #f1f3f5;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+tbody tr:hover {
+  background-color: #dbeafe;
+}
+td {
+  border-radius: 6px;
+  cursor: text;
+  outline: none;
+}
+td[contenteditable="true"]:focus {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+}
+/* Responsive Stack */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  #pdfPreview, #tableContainer {
+    max-width: 95vw;
+    flex: none;
+  }
+}

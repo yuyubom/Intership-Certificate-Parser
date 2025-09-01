@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Internship Certificate Parser</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h2>Internship Certificate Parser</h2>
+<div id="controls">
+  <input type="file" id="fileInput" accept="application/pdf" multiple />
+  <button id="prevBtn" disabled>⬅ Previous</button>
+  <button id="nextBtn" disabled>Next ➡</button>
+  <button id="downloadExcel">⬇ Export to Excel</button>
+  <button id="cropBtn">Crop for OCR</button>
+</div>
+<div class="container">
+  <div id="pdfPreview">
+    <canvas id="pdfCanvas"></canvas>
+    <canvas id="overlayCanvas"></canvas>
+    <div id="textOutput" aria-live="polite">Upload a PDF to start...</div>
+  </div>
+  <div id="tableContainer" aria-label="Extracted Data Table Container">
+    <table id="dataTable" role="table" aria-describedby="textOutput">
+      <thead>
+        <tr><th>Name</th><th>Company</th><th>Duration</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
